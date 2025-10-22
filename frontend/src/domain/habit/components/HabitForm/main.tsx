@@ -9,7 +9,6 @@
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { Input } from '@/core/components/Input';
 import { Button } from '@/core/components/Button';
 import { Card } from '@/core/components/Card';
 import type { HabitFormProps } from './types';
