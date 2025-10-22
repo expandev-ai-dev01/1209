@@ -7,7 +7,7 @@ interface InputVariantsProps {
 }
 
 interface LabelVariantsProps {
-  required: boolean;
+  // required parameter removed as it's not used in the function
 }
 
 export const inputVariants = ({ error, disabled, className }: InputVariantsProps) => {
@@ -21,7 +21,7 @@ export const inputVariants = ({ error, disabled, className }: InputVariantsProps
   return clsx(baseClasses, errorClasses, disabledClasses, className);
 };
 
-export const labelVariants = ({ required }: LabelVariantsProps) => {
+export const labelVariants = ({}: LabelVariantsProps) => {
   return clsx('block text-sm font-medium text-gray-700 mb-1');
 };
 

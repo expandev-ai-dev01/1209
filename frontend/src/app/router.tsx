@@ -5,6 +5,9 @@ import { LoadingSpinner } from '@/core/components/LoadingSpinner';
 import { ErrorBoundary } from '@/core/components/ErrorBoundary';
 
 const HomePage = lazy(() => import('@/pages/Home'));
+const HabitListPage = lazy(() => import('@/pages/HabitList'));
+const HabitCreatePage = lazy(() => import('@/pages/HabitCreate'));
+const HabitEditPage = lazy(() => import('@/pages/HabitEdit'));
 const NotFoundPage = lazy(() => import('@/pages/NotFound'));
 
 /**
@@ -15,7 +18,7 @@ export const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
-    errorElement: <ErrorBoundary />,
+    errorElement: <ErrorBoundary children={null} />,
     children: [
       {
         index: true,
@@ -24,6 +27,35 @@ export const router = createBrowserRouter([
             <HomePage />
           </Suspense>
         ),
+      },
+      {
+        path: 'habits',
+        children: [
+          {
+            index: true,
+            element: (
+              <Suspense fallback={<LoadingSpinner />}>
+                <HabitListPage />
+              </Suspense>
+            ),
+          },
+          {
+            path: 'new',
+            element: (
+              <Suspense fallback={<LoadingSpinner />}>
+                <HabitCreatePage />
+              </Suspense>
+            ),
+          },
+          {
+            path: ':id/edit',
+            element: (
+              <Suspense fallback={<LoadingSpinner />}>
+                <HabitEditPage />
+              </Suspense>
+            ),
+          },
+        ],
       },
       {
         path: '*',

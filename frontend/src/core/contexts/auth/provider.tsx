@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     initializeAuth();
   }, []);
 
-  const login = async (email: string, password: string): Promise<User> => {
+  const login = async (email: string): Promise<User> => {
     setIsLoading(true);
     try {
       const userData: User = { id: '1', email, name: 'User' };

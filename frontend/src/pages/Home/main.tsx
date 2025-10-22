@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { Card } from '@/core/components/Card';
 import { Button } from '@/core/components/Button';
 
@@ -6,6 +7,8 @@ import { Button } from '@/core/components/Button';
  * @summary Welcome page for the habit tracker application
  */
 export const HomePage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-4xl mx-auto">
@@ -45,7 +48,9 @@ export const HomePage = () => {
         </div>
 
         <div className="text-center">
-          <Button size="large">Começar agora</Button>
+          <Button size="large" onClick={() => navigate('/habits')}>
+            Ver Meus Hábitos
+          </Button>
         </div>
       </div>
     </div>

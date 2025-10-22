@@ -5,5 +5,4 @@
  * @module constants
  */
 
-// Constants will be exported here as they are implemented
-// Example: export * from './habitStatus';
+export * from './habitFrequency';
