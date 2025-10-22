@@ -141,13 +141,19 @@ export const HabitForm = ({
           </h2>
         </div>
 
-        <Input
-          label="Nome do Hábito"
-          {...register('nomeHabito')}
-          error={errors.nomeHabito?.message}
-          required
-          placeholder="Ex: Ler 30 minutos"
-        />
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            Nome do Hábito <span className="text-red-500">*</span>
+          </label>
+          <input
+            {...register('nomeHabito')}
+            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
+            placeholder="Ex: Ler 30 minutos"
+          />
+          {errors.nomeHabito && (
+            <p className="text-sm text-red-500 mt-1">{errors.nomeHabito.message}</p>
+          )}
+        </div>
 
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">Descrição</label>
