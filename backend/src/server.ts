@@ -3,17 +3,10 @@ import cors from 'cors';
 import helmet from 'helmet';
 import compression from 'compression';
 import morgan from 'morgan';
-import { config } from '@/config';
-import { errorMiddleware } from '@/middleware/error';
-import { notFoundMiddleware } from '@/middleware/notFound';
+import { config } from '@/instances/config';
+import { errorMiddleware } from '@/middleware/errorMiddleware';
+import { notFoundMiddleware } from '@/middleware/notFoundMiddleware';
 import apiRoutes from '@/routes';
-
-/**
- * @summary
- * Main application server configuration and initialization
- *
- * @module server
- */
 
 const app: Application = express();
 
@@ -33,17 +26,7 @@ if (config.server.nodeEnv === 'development') {
   app.use(morgan('combined'));
 }
 
-/**
- * @api {get} /health Health Check
- * @apiName HealthCheck
- * @apiGroup System
- * @apiVersion 1.0.0
- *
- * @apiDescription Returns server health status
- *
- * @apiSuccess {String} status Server status
- * @apiSuccess {String} timestamp Current timestamp
- */
+// Health check (no versioning)
 app.get('/health', (req: Request, res: Response) => {
   res.json({
     status: 'healthy',
@@ -71,9 +54,9 @@ process.on('SIGTERM', () => {
 });
 
 // Server startup
-const server = app.listen(config.api.port, () => {
-  console.log(`Server running on port ${config.api.port} in ${config.server.nodeEnv} mode`);
-  console.log(`API available at http://localhost:${config.api.port}/api/${config.api.version}`);
+const server = app.listen(config.server.port, () => {
+  console.log(`Server running on port ${config.server.port} in ${config.server.nodeEnv} mode`);
+  console.log(`API available at http://localhost:${config.server.port}/api/${config.api.version}`);
 });
 
 export default server;

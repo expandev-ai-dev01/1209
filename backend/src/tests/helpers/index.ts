@@ -5,5 +5,5 @@
  * @module tests/helpers
  */
 
-// Test helpers will be added here as needed
-// Example: export * from './apiHelpers';
+// Test helpers will be exported here as they are created
+// Example: export * from '@/tests/helpers/apiHelpers';

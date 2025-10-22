@@ -2,22 +2,15 @@
  * @summary
  * Global test environment setup
  *
- * @module tests/testSetup
+ * @module tests
  */
 
-// Global test setup configuration
-beforeAll(() => {
-  // Setup code that runs before all tests
-});
+// Set test environment
+process.env.NODE_ENV = 'test';
+process.env.PORT = '3001';
 
-afterAll(() => {
-  // Cleanup code that runs after all tests
-});
-
-beforeEach(() => {
-  // Setup code that runs before each test
-});
-
-afterEach(() => {
-  // Cleanup code that runs after each test
-});
+// Global test utilities can be added here
+export const testConfig = {
+  timeout: 5000,
+  apiUrl: 'http://localhost:3001',
+};

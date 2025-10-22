@@ -1,9 +1,2 @@
-/**
- * @summary
- * Utility functions exports
- *
- * @module utils
- */
-
-export * from './response';
-export * from './zodValidation';
+export * from '@/utils/response';
+export * from '@/utils/zodValidation';

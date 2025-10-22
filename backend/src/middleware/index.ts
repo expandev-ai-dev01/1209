@@ -1,10 +1,3 @@
-/**
- * @summary
- * Middleware exports
- *
- * @module middleware
- */
-
-export * from './error';
-export * from './notFound';
-export * from './validation';
+export * from '@/middleware/errorMiddleware';
+export * from '@/middleware/notFoundMiddleware';
+export * from '@/middleware/validationMiddleware';

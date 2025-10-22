@@ -1,13 +1,6 @@
 import { Router } from 'express';
-import externalRoutes from './externalRoutes';
-import internalRoutes from './internalRoutes';
-
-/**
- * @summary
- * V1 API router configuration
- *
- * @module routes/v1
- */
+import externalRoutes from '@/routes/v1/externalRoutes';
+import internalRoutes from '@/routes/v1/internalRoutes';
 
 const router = Router();
 

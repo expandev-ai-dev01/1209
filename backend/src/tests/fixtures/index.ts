@@ -5,5 +5,5 @@
  * @module tests/fixtures
  */
 
-// Test fixtures will be added here as needed
-// Example: export * from './habitFixtures';
+// Test fixtures will be exported here as they are created
+// Example: export * from '@/tests/fixtures/habitFixtures';

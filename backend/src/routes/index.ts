@@ -1,12 +1,5 @@
 import { Router } from 'express';
-import v1Routes from './v1';
-
-/**
- * @summary
- * Main API router with version management
- *
- * @module routes
- */
+import v1Routes from '@/routes/v1';
 
 const router = Router();
 

@@ -1,8 +1,2 @@
-/**
- * @summary
- * Application constants exports
- *
- * @module constants
- */
-
-export * from './habitFrequency';
+// Constants will be exported here as they are created
+// Example: export * from '@/constants/habitStatus';
