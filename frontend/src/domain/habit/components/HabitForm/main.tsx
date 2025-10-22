@@ -97,22 +97,18 @@ export const HabitForm = ({
     formState: { errors },
   } = useForm<HabitFormData>({
     resolver: zodResolver(habitSchema),
-    defaultValues: initialData
-      ? {
-          nomeHabito: initialData.nomeHabito,
-          descricao: initialData.descricao,
-          frequencia: initialData.frequencia,
-          diasSemana: initialData.diasSemana,
-          diasMes: initialData.diasMes,
-          horarioInicio: initialData.horarioInicio,
-          duracaoEstimada: initialData.duracaoEstimada,
-          categoriaId: initialData.categoriaId,
-          dataInicio: initialData.dataInicio,
-          dataTermino: initialData.dataTermino,
-        }
-      : {
-          frequencia: 'diária',
-        },
+    defaultValues: {
+      nomeHabito: initialData?.nomeHabito || '',
+      descricao: initialData?.descricao || '',
+      frequencia: initialData?.frequencia || 'diária',
+      diasSemana: initialData?.diasSemana || [],
+      diasMes: initialData?.diasMes || [],
+      horarioInicio: initialData?.horarioInicio || '',
+      duracaoEstimada: initialData?.duracaoEstimada || undefined,
+      categoriaId: initialData?.categoriaId || undefined,
+      dataInicio: initialData?.dataInicio || '',
+      dataTermino: initialData?.dataTermino || '',
+    },
   });
 
   const frequencia = watch('frequencia');
